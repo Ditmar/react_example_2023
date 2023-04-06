@@ -8,17 +8,20 @@ const generateAvatar = (list) => {
     }
     return avatar;
 }
-const List = () => {
+const List = props => {
+    const { clickHandler } = props;
     const [list, setList] = useState([]);
     //setList(generateAvatar());
     useEffect(() => {
         setList(generateAvatar());
     }, []);
-    return <div >
+    return <div className='wrapper'>
         <h2>List</h2>
         <ul>
             {list.map((item, index) => (
-                <li key={index}>
+                <li key={index} onClick={() => {
+                    clickHandler(item);
+                }}>
                     <img src={item} />
                 </li>
             ))}

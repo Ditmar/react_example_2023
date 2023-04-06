@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './styles.css';
-const Counter = () => {
+const Counter = props => {
+    const { uri } = props;
     console.log('el componente se carga')
     const [count, setCount] = useState(0);
     const increment = () => {
@@ -11,7 +12,7 @@ const Counter = () => {
     }
     return <div className='wrapper'>
         <h2>Counter</h2>
-        <img src={`https://avatars.dicebear.com/api/open-peeps/stefan${count}.svg`} />
+        <img src={uri} />
         <p>{count}</p>
         <button onClick={increment}>Increment</button>
         <button onClick={decrement}>Decrement</button>
